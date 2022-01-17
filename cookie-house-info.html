@@ -323,7 +323,9 @@
         function initializeReplies(doc) {
             var comments = doc.comments;
             $("#no-of-comments").append(`(${comments.length} comments)`);
-            $("#cookie-house-view-comments").empty();
+            if(comments.length > 0){
+                  $("#tasty-bakers-view-comments").empty();
+            }
             comments.forEach((line, index) => {
                 console.log(line)
                 $("#cookie-house-view-comments").append(`<div class="comment-writer"> ${line[0]} </div><div class="comment-holder-div"><div class="comment-text"> ${line[1]} </div><div class="float-right-div"><div class="comment-date"> ${timeDifference(new Date(), new Date(line[2]))} </div><div><a id="${index}" class="reply-btn" style="color:#00567B;font-size:small;" href="#write-comment-dialog">
